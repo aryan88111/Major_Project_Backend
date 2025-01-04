@@ -15,7 +15,10 @@ const User = require('../models/user.js');
 // Import the userController functions for handling login and registration
 const {
     userLogin,
-    userRegister
+    userRegister,
+    forgetPasswordEmail,
+    changePassword,
+    forgetPassword
 } = require("../controllers/userController.js");
 
 // Import the middleware to check if a user is authenticated
@@ -28,6 +31,16 @@ router.post('/register', userRegister);
 // Define a POST route for user login
 // Calls the userLogin function from the userController
 router.post("/login", userLogin);
+
+
+router.post("/change-password", checkIsUserAuthenticated, changePassword);
+
+
+router.post("/forget-password", forgetPassword)
+
+
+router.post("/forget-password/:id/:token", forgetPasswordEmail);
+
 
 // Export the router to be used in other parts of the application
 module.exports = router;
