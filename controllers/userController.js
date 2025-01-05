@@ -43,7 +43,7 @@ exports.userLogin = async(req, res) => {
             // Verify the email and password
             if (email === data.email && await bcryptjs.compare(password, data.password)) {
                 // If credentials are valid, generate a JWT token
-                const token = jwt.sign({ userID: data._id }, "aryangautam", {
+                const token = jwt.sign({ userID: data._id }, "pleaseSubscribe", {
                     expiresIn: "2d", // Token expires in 2 days
                 });
                 // Return a success message with the token and user's name
@@ -203,6 +203,38 @@ exports.forgetPasswordEmail = async(req, res) => {
 
     } else {
         return res.status(400).json({ message: "All Fields Are required" })
+
+    }
+
+};
+
+
+// Find User by ID
+
+exports.findUserById = async(req, res) => {
+
+    const { id } = req.params; // Get the user ID from the request parameters
+
+
+    try {
+
+        const user = await User.findById(id); // Find user by ID
+
+
+        if (!user) {
+
+            return res.status(404).json({ message: 'User  not found' });
+
+        }
+
+
+        res.status(200).json(user); // Respond with the user data
+
+    } catch (error) {
+
+        console.error(error);
+
+        res.status(500).json({ message: 'Error retrieving user', error: error.message });
 
     }
 

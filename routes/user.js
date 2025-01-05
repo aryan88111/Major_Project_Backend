@@ -18,7 +18,8 @@ const {
     userRegister,
     forgetPasswordEmail,
     changePassword,
-    forgetPassword
+    forgetPassword,
+    findUserById
 } = require("../controllers/userController.js");
 
 // Import the middleware to check if a user is authenticated
@@ -40,6 +41,9 @@ router.post("/forget-password", forgetPassword)
 
 
 router.post("/forget-password/:id/:token", forgetPasswordEmail);
+// Find User by ID Route
+
+router.get('/:id', findUserById);
 
 
 // Export the router to be used in other parts of the application

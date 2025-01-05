@@ -11,7 +11,7 @@ const checkIsUserAuthenticated = async(req, res, next) => {
 
         token = authorization.split(" ")[1];
         console.log("qqqqqq");
-        const { userID } = jwt.verify(token, "aryangautam");
+        const { userID } = jwt.verify(token, "pleaseSubscribe");
         console.log(userID, "heeeeerrree");
 
         req.user = await User.findById(userID).select("--password");
