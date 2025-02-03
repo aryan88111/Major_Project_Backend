@@ -6,23 +6,51 @@ const User = require('../models/user.js'); // Import the User model
 // Function to handle user registration
 exports.userRegister = async(req, res) => {
     // Check if the user already exists in the database
-    const data = await User.findOne({ email: req.body.email });
-    if (data) {
+
+    let user = await User.findOne({ email: req.body.email });
+    if (user) {
         // If user exists, return a message
         return res.send('User  Already present In DataBase');
     } else {
         // If user does not exist, hash the password
         const NewPassword = await bcryptjs.hash(req.body.password, 10);
         // Create a new user object with the provided details
-        const userData = User({
-            name: req.body.name,
+        console.log(NewPassword, "aaaaaaaaaaaaaaaa");
+        user = User({
+            // Plain password - will be hashed by pre-save middleware
+            firstName: req.body.firstName,
+            lastName: req.body.lastName,
+
             email: req.body.email,
-            password: NewPassword // Store the hashed password
+            password: NewPassword, // Store the hashed password
+            role: req.body.role,
+            profilePicture: req.body.profilePicture
         });
         // Save the user to the database
-        await userData.save();
+        await user.save();
+        console.log("yyyyyyyyyyyyyyyyyyyy");
+
+
+        const token = jwt.sign({ userId: user._id },
+            process.env.JWT_SECRET || 'pleaseSubscribe', { expiresIn: '24h' }
+        );
+
+
+        // Return user data (excluding password)
+        const userData = {
+            _id: user._id,
+            email: user.email,
+            firstName: user.firstName,
+            lastName: user.lastName,
+            role: user.role,
+            profilePicture: user.profilePicture
+        };
+
         // Return a success message
-        return res.status(200).json("Successfully Created ");
+        res.status(201).json({
+            token,
+            user: userData
+        });
     }
 };
 
@@ -31,8 +59,8 @@ exports.userLogin = async(req, res) => {
     // Extract email and password from the request body
     const { email, password } = req.body;
     // Find the user in the database by email
-    const data = await User.findOne({ email: req.body.email });
-    if (!data) {
+    const user = await User.findOne({ email: req.body.email });
+    if (!user) {
         // If user is not found, return an error message
         return res.status(400).json({
             message: "User  Not Found"
@@ -41,16 +69,27 @@ exports.userLogin = async(req, res) => {
         // Check if both email and password are provided
         if (email && password) {
             // Verify the email and password
-            if (email === data.email && await bcryptjs.compare(password, data.password)) {
+            if (email === user.email && await bcryptjs.compare(password, user.password)) {
                 // If credentials are valid, generate a JWT token
-                const token = jwt.sign({ userID: data._id }, "pleaseSubscribe", {
+                const token = jwt.sign({ userID: user._id }, "pleaseSubscribe", {
                     expiresIn: "2d", // Token expires in 2 days
                 });
+                // Return user data (excluding password)
+                const userData = {
+                    _id: user._id,
+                    email: user.email,
+                    firstName: user.firstName,
+                    lastName: user.lastName,
+                    role: user.role,
+                    profilePicture: user.profilePicture
+                };
+
+
                 // Return a success message with the token and user's name
                 return res.status(200).json({
                     message: "Login SuccessFul",
                     token: token,
-                    name: data.name
+                    user: userData
                 });
             } else {
                 // If credentials are invalid, return an error message

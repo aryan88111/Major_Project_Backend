@@ -2,19 +2,80 @@ const Property = require('../models/property');
 
 exports.addProperty = async(req, res) => {
     try {
-        const newProperty = new Property(req.body);
-        const savedProperty = await newProperty.save();
+        const {
+            propertyName,
+            price,
+            numOfRooms,
+            numOfBathRoom,
+            numOfKitchen,
+            numOfBalcony,
+            numOfParking,
+            propertyArea,
+            propertyFurnished,
+            propertyConstructionYear,
+            features,
+            propertyFacing,
+            propertyTransactionType,
+            propertyResale,
+            propertyStatus,
+            propertyType,
+            propertySellerIdType,
+            propertySellerId,
+            propertyDescription,
+            owner,
+            location,
+            propertyFrontImg,
+            propertyRightImg,
+            propertyLeftImg,
+            propertyInteriorImg1,
+            propertyInteriorImg2,
+            propertyInteriorImg3,
+            registrationCopy,
+            bluePrintCopy
+        } = req.body;
 
-        res.status(201).json({
-            message: 'Property added successfully',
-            property: savedProperty
+        // Parse location if provided (longitude, latitude)
+        // const parsedLocation = location ? JSON.parse(location) : { type: "Point", coordinates: [0, 0] };
+
+        // Create New Property Entry
+        const newProperty = new Property({
+            propertyName,
+            price,
+            location,
+            propertyFrontImg,
+            propertyRightImg,
+            propertyLeftImg,
+            propertyInteriorImg1,
+            propertyInteriorImg2,
+            propertyInteriorImg3,
+            registrationCopy,
+            bluePrintCopy,
+            numOfRooms,
+            numOfBathRoom,
+            numOfKitchen,
+            numOfBalcony,
+            numOfParking,
+            propertyArea,
+            propertyFurnished,
+            propertyConstructionYear,
+            features, // Convert comma-separated string to array
+            propertyFacing,
+            propertyTransactionType,
+            propertyResale,
+            propertyStatus,
+            propertyType,
+            propertySellerIdType,
+            propertySellerId,
+            propertyDescription,
+            owner
         });
+
+        await newProperty.save();
+
+        res.status(201).json({ message: "Property added successfully", property: newProperty });
     } catch (error) {
-        console.error(error);
-        res.status(500).json({
-            message: 'Error adding property',
-            error: error.message
-        });
+        console.error("Error adding property:", error);
+        res.status(500).json({ message: "Internal server error", error: error.message });
     }
 };
 
