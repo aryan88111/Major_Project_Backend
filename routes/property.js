@@ -1,10 +1,12 @@
 const express = require('express');
-const { addProperty, userProperty } = require('../controllers/propertyController');
+const { addProperty, getPropertyById, getAllProperty, userProperty } = require('../controllers/propertyController');
 
 const router = express.Router();
 
 // Add Property Route
 router.post('/add-property', addProperty);
+router.get('/', getAllProperty);
+router.get('/', getPropertyById);
 
 
 
