@@ -21,6 +21,15 @@ const propertySchema = mongoose.Schema({
             index: '2dsphere' // Enables geospatial queries
         }
     },
+
+    address: {
+        street: { type: String, required: true },
+        city: { type: String, required: true },
+        state: { type: String, required: true },
+        zipCode: { type: String, required: true },
+        country: { type: String, required: true }
+    },
+
     price: {
         type: Number,
         required: true
@@ -170,5 +179,13 @@ const propertySchema = mongoose.Schema({
     }
 
 }, { timestamp: true });
+
+
+propertySchema.index({
+    propertyName: 'text',
+    propertyDescription1: 'text',
+    'address.city': 'text',
+    'address.state': 'text'
+});
 const Property = mongoose.model("Property", propertySchema);
 module.exports = Property;

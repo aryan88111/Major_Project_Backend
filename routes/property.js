@@ -6,7 +6,7 @@ const router = express.Router();
 // Add Property Route
 router.post('/add-property', addProperty);
 router.get('/', getAllProperty);
-router.get('/', getPropertyById);
+router.get('/:id', getPropertyById);
 
 
 
