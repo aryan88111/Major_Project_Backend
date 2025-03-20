@@ -5,6 +5,7 @@ exports.addProperty = async(req, res) => {
         const {
             propertyName,
             price,
+            address,
             numOfRooms,
             numOfBathRoom,
             numOfKitchen,
@@ -41,6 +42,7 @@ exports.addProperty = async(req, res) => {
         const newProperty = new Property({
             propertyName,
             price,
+            address,
             location,
             propertyFrontImg,
             propertyRightImg,
