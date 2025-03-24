@@ -29,6 +29,10 @@ const userSchema = mongoose.Schema({
         type: String,
         default: ''
     },
+    subscription: {
+        type: Boolean,
+        default: false
+    },
     createdAt: {
         type: Date,
         default: Date.now

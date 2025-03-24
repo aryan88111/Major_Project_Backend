@@ -2,6 +2,160 @@
 const bcryptjs = require('bcryptjs'); // For password hashing
 const jwt = require("jsonwebtoken"); // For generating JSON Web Tokens (JWT)
 const User = require('../models/user.js'); // Import the User model
+const Razorpay = require('razorpay'); // Razorpay for payment integration
+const crypto = require('crypto');
+const { log } = require('console');
+
+
+
+
+// Initialize Razorpay instance (use your Razorpay API keys)
+const razorpay = new Razorpay({
+    key_id: process.env.RAZORPAY_KEY_ID || 'rzp_test_Z6d3UK2fNjcswp',
+    key_secret: process.env.RAZORPAY_KEY_SECRET || 'X3fEAvpXPYFFQPK09aURCxkZ'
+});
+exports.createSubscription = async(req, res) => {
+    console.log("API called to create subscription!"); // Add this to debug
+    try {
+        const { userEmail, userId, userName } = req.body; // Get user details from frontend
+        const planId = "plan_QAWZZirWIHs8me"; // Predefined Razorpay plan ID
+        const totalCount = req.body.total_count || 12; // Number of billing cycles (1 year)
+
+        console.log(userEmail, userId, userName);
+
+        // Create Razorpay subscription
+        const subscription = await razorpay.subscriptions.create({
+            plan_id: planId,
+            total_count: totalCount,
+            customer_notify: 1,
+            notes: {
+                premium_membership: "Property Listing Website Premium Membership",
+                user_id: userId, // Include userId for tracking
+                user_name: userName,
+                user_email: userEmail,
+            },
+        });
+
+        // Send subscription details to the frontend
+        res.status(201).json({
+            message: "Subscription created successfully",
+            subscription,
+        });
+    } catch (error) {
+        console.error("Error creating subscription:", error);
+
+        // Send error response
+        res.status(500).json({
+            message: "Failed to create subscription due to server error",
+            error: error.message,
+        });
+    }
+};
+exports.verifyPayment = async(req, res) => {
+    try {
+        const { razorpay_payment_id, razorpay_subscription_id, razorpay_signature, userId } = req.body;
+
+        // Generate signature for verification
+        const generated_signature = crypto
+            .createHmac("sha256", process.env.RAZORPAY_KEY_SECRET || 'X3fEAvpXPYFFQPK09aURCxkZ')
+            .update(`${razorpay_payment_id}|${razorpay_subscription_id}`)
+            .digest("hex");
+
+        if (generated_signature === razorpay_signature) {
+            // Find user by ID and update subscription status
+            const user = await User.findById(userId);
+            if (user) {
+                user.subscription = true; // Activate subscription
+                user.role = user.role; // Keep existing role (e.g., 'Seller')
+                await user.save();
+
+                res.status(200).json({ message: "Payment verified and subscription activated!" });
+            } else {
+                res.status(404).json({ message: "User not found" });
+            }
+        } else {
+            res.status(400).json({ message: "Payment verification failed due to signature mismatch" });
+        }
+    } catch (error) {
+        console.error("Error verifying payment:", error);
+        res.status(500).json({ message: "Payment verification process encountered an error" });
+    }
+};
+
+
+// Route to handle subscription creation
+// exports.createSubscription = async(req, res) => {
+//     try {
+//         const userEmail = localStorage.getItem('userEmail');
+//         const userId = localStorage.getItem('userId');
+//         const userName = localStorage.getItem('userName');
+//         // Get user details from the request
+//         const planId = "plan_QAWZZirWIHs8me"; // Predefined Razorpay plan ID
+//         const totalCount = req.body.total_count || 12; // Number of billing cycles (1 year)
+
+//         // Create Razorpay subscription with user data and plan details
+//         const subscription = await razorpay.subscriptions.create({
+//             plan_id: planId,
+//             total_count: totalCount,
+//             customer_notify: 1,
+//             notes: {
+//                 premium_membership: "Property Listing Website Premium Membership",
+//                 user_id: userId, // Include userId for backend tracking
+//                 user_name: userName,
+//                 user_email: userEmail,
+//             },
+//         });
+
+//         // Send subscription details back to the frontend
+//         res.status(201).json({
+//             message: "Subscription created successfully",
+//             subscription,
+//         });
+//     } catch (error) {
+//         console.error("Error creating subscription:", error);
+
+//         // Handle Razorpay API errors gracefully
+//         const errorMessage = error || "Failed to create subscription due to server error.";
+//         res.status(500).json({
+//             message: errorMessage,
+//             error: error,
+//         });
+//     }
+// };
+// Route to verify payment signature after successful payment
+// exports.verifyPayment = async(req, res) => {
+//     try {
+//         const { razorpay_payment_id, razorpay_subscription_id, razorpay_signature } = req.body; // Include userId from frontend
+//         const userId = localStorage.getItem('userId');
+//         // Generate signature for verification using Razorpay key secret
+//         const generated_signature = crypto
+//             .createHmac("sha256", process.env.RAZORPAY_KEY_SECRET || 'X3fEAvpXPYFFQPK09aURCxkZ')
+//             .update(`${razorpay_payment_id}|${razorpay_subscription_id}`)
+//             .digest("hex");
+
+//         // Verify if the generated signature matches the one received from Razorpay
+//         if (generated_signature === razorpay_signature) {
+//             // Find user by ID and update their subscription status while keeping role as 'Seller'
+//             const user = await User.findById(userId);
+//             if (user) {
+//                 user.subscription = true; // Activate the user's subscription
+//                 user.role = user.role; // Keep existing role (like 'Seller')
+//                 await user.save();
+
+//                 res.status(200).json({ message: "Payment verified and subscription activated!" });
+//             } else {
+//                 res.status(404).json({ message: "User not found" });
+//             }
+//         } else {
+//             res.status(400).json({ message: "Payment verification failed due to signature mismatch" });
+//         }
+//     } catch (error) {
+//         console.error("Error verifying payment:", error);
+
+//         // Respond with a generic error message
+//         res.status(500).json({ message: "Payment verification process encountered an error" });
+//     }
+// };
 
 // Function to handle user registration
 exports.userRegister = async(req, res) => {

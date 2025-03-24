@@ -19,6 +19,8 @@ const {
     forgetPasswordEmail,
     changePassword,
     forgetPassword,
+    createSubscription,
+    verifyPayment,
     findUserById
 } = require("../controllers/userController.js");
 
@@ -32,6 +34,8 @@ router.post('/register', userRegister);
 // Define a POST route for user login
 // Calls the userLogin function from the userController
 router.post("/login", userLogin);
+router.post("/subscribe-premium", createSubscription);
+router.post("/verify-payment", verifyPayment);
 
 
 router.post("/change-password", checkIsUserAuthenticated, changePassword);
