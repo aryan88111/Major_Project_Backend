@@ -34,35 +34,19 @@ const propertySchema = mongoose.Schema({
         type: Number,
         required: true
     },
-    // property/building Images
-    propertyFrontImg: {
-        type: String,
+    images: [{
+        type: String
 
-    },
-    propertyRightImg: {
-        type: String,
-    },
-    propertyLeftImg: {
-        type: String,
-    },
-    /// property Interior Images
-    propertyInteriorImg1: {
-        type: String,
-    },
-    propertyInteriorImg2: {
-        type: String,
-    },
-    propertyInteriorImg3: {
-        type: String,
-    },
+    }],
+
     //House Document
     registrationCopy: {
         type: String,
-        required: true
+        // required: true
     },
     bluePrintCopy: {
         type: String,
-        required: true
+        // required: true
     },
     ///rooms Specification 
     numOfRooms: {

@@ -6,6 +6,7 @@ exports.addProperty = async(req, res) => {
             propertyName,
             price,
             address,
+            images,
             numOfRooms,
             numOfBathRoom,
             numOfKitchen,
@@ -22,15 +23,11 @@ exports.addProperty = async(req, res) => {
             propertyType,
             propertySellerIdType,
             propertySellerId,
-            propertyDescription,
+            propertyDescription1,
+            propertyDescription2,
             owner,
             location,
-            propertyFrontImg,
-            propertyRightImg,
-            propertyLeftImg,
-            propertyInteriorImg1,
-            propertyInteriorImg2,
-            propertyInteriorImg3,
+
             registrationCopy,
             bluePrintCopy
         } = req.body;
@@ -43,13 +40,9 @@ exports.addProperty = async(req, res) => {
             propertyName,
             price,
             address,
+            images,
             location,
-            propertyFrontImg,
-            propertyRightImg,
-            propertyLeftImg,
-            propertyInteriorImg1,
-            propertyInteriorImg2,
-            propertyInteriorImg3,
+
             registrationCopy,
             bluePrintCopy,
             numOfRooms,
@@ -68,7 +61,8 @@ exports.addProperty = async(req, res) => {
             propertyType,
             propertySellerIdType,
             propertySellerId,
-            propertyDescription,
+            propertyDescription1,
+            propertyDescription2,
             owner
         });
 
