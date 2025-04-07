@@ -197,7 +197,8 @@ exports.userRegister = async(req, res) => {
             firstName: user.firstName,
             lastName: user.lastName,
             role: user.role,
-            profilePicture: user.profilePicture
+            profilePicture: user.profilePicture,
+            subscription: user.subscription
         };
 
         // Return a success message
