@@ -6,7 +6,7 @@ const Razorpay = require('razorpay'); // Razorpay for payment integration
 const crypto = require('crypto');
 const { log } = require('console');
 
-
+const nodemailer = require("nodemailer");
 
 
 // Initialize Razorpay instance (use your Razorpay API keys)
@@ -174,7 +174,7 @@ exports.userRegister = async(req, res) => {
             // Plain password - will be hashed by pre-save middleware
             firstName: req.body.firstName,
             lastName: req.body.lastName,
-
+            phoneNo: req.body.phoneNo,
             email: req.body.email,
             password: NewPassword, // Store the hashed password
             role: req.body.role,
@@ -197,6 +197,7 @@ exports.userRegister = async(req, res) => {
             firstName: user.firstName,
             lastName: user.lastName,
             role: user.role,
+            phoneNo: user.phoneNo,
             profilePicture: user.profilePicture,
             subscription: user.subscription
         };
@@ -236,6 +237,8 @@ exports.userLogin = async(req, res) => {
                     firstName: user.firstName,
                     lastName: user.lastName,
                     role: user.role,
+                    phoneNo: user.phoneNo,
+                    userSubscription: user.subscription,
                     profilePicture: user.profilePicture
                 };
 
@@ -293,6 +296,7 @@ exports.changePassword = async(req, res) => {
 
 exports.forgetPassword = async(req, res) => {
     const { email } = req.body;
+    console.log(email, "lllll");
     const data = await User.findOne({ email: email });
     if (data) {
         //generate token
@@ -301,7 +305,7 @@ exports.forgetPassword = async(req, res) => {
         const token = jwt.sign({ userID: data._id }, secret_key, {
             expiresIn: '10m'
         });
-        const link = `http://localhost:3000/forget-password/${data._id}/${token}`;
+        const link = `http://localhost:5173/api/users/forget-password/${data._id}/${token}`;
         const transport = nodemailer.createTransport({
             service: "gmail",
             host: "smtp.gmail.com",
@@ -310,8 +314,8 @@ exports.forgetPassword = async(req, res) => {
             logger: true,
             secureConnection: false,
             auth: {
-                user: "markbaba88111@gmail.com",
-                pass: "ruko abev qgwm hfeu",
+                user: "hackerbhaiya5@gmail.com",
+                pass: "ljcd phkv kpvp qpnf",
             },
             tls: {
                 rejectUnAuthorized: true
@@ -377,7 +381,7 @@ exports.forgetPasswordEmail = async(req, res) => {
                 });
                 if (isSuccess) {
 
-                    return res.status(400).json({ message: "Password changed" });
+                    return res.status(200).json({ message: "Password changed" });
                 } else {
                     return res.status(400).json({ message: "Password Not changed" })
 

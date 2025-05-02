@@ -29,6 +29,9 @@ const userSchema = mongoose.Schema({
         type: String,
         default: ''
     },
+    phoneNo: {
+        type: Number
+    },
     subscription: {
         type: Boolean,
         default: false
