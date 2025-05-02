@@ -1,0 +1,103 @@
+/* .container{
+    margin: 0rem 0px 0px 0px;
+    position: relative;
+ top: -70px;
+    left: 10%;
+   
+    width: 80%;
+    height: 500px;
+    box-shadow: 1px 1px 10px rgba(6, 3, 23, 0.756);
+    border-radius:20px ;
+    background-color: #081b29d3;
+
+}
+
+.plotImage{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: -0.5rem;
+    left: -0.5rem;
+    border-radius:20px ;
+    object-fit: cover;
+    filter: drop-shadow(2px 2px 10px rgba(1, 1, 70, 0.833));
+
+
+}
+
+.bunchKey{
+    width: 100px;
+    position: absolute;
+    top: -2.5rem;
+    left: 0;
+    z-index: 2;
+} */
+ /* 🌍 Container Styles */
+.container {
+    margin: 0 auto;
+    position: relative;
+    top: -50px;
+    width: 90%;
+    max-width: 1200px;
+    height: 400px;
+    box-shadow: 1px 1px 10px rgba(6, 3, 23, 0.756);
+    border-radius: 20px;
+    background-color: #081b29d3;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* 🏠 Background Image */
+.plotImage {
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    object-fit: cover;
+    filter: drop-shadow(2px 2px 10px rgba(1, 1, 70, 0.833));
+}
+
+/* 🔑 Key Icon */
+.bunchKey {
+    width: 80px;
+    position: absolute;
+    top: -30px;
+    left: 10%;
+    z-index: 2;
+    animation: float 3s ease-in-out infinite; /* 🎭 Smooth Floating Effect */
+}
+
+/* ✨ Floating Key Animation */
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
+}
+
+/* 📱 Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        width: 95%;
+        height: 300px;
+        top: -30px;
+    }
+
+    .bunchKey {
+        width: 60px;
+        top: -20px;
+        left: 5%;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        height: 250px;
+    }
+
+    .bunchKey {
+        width: 50px;
+        top: -10px;
+        left: 3%;
+    }
+}

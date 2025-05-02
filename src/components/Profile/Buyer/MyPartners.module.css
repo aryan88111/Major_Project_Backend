@@ -1,0 +1,168 @@
+.container>*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+
+
+
+}
+
+.searchCont{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem 5rem;
+    margin: 2rem 0;
+
+}
+.searchCont>input{
+    /* flex-grow: 2; */
+    width: 60%;
+    padding: 0.7rem;
+    border-radius:5px 0 0 5px;
+    border: 0.2px solid gray;
+    outline: none;
+    /* margin: 0.5rem; */
+}
+
+.searchCont>input:focus{
+    outline: 0.5px solid #30a2fa;
+}
+
+.searchCont>button{
+    padding: 0.78rem;
+    border-radius:0 5px 5px 0;
+    border: none;
+    cursor: pointer;
+    /* margin: 2.5rem 0; */
+    background: #0d6efd;
+    color: #fff;
+    margin: 0;
+}
+
+.searchCont>span{
+    margin: 0 2rem;
+    background: #6c757d;
+    outline: #30a2fa;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    color: #fff;
+    /* text-decoration: underline #0d6efd; */
+    /* color: #194668; */
+    /* font-size: larger; */
+}
+
+
+.partnersCont{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 2rem;
+    /* background: #00000018; */
+}
+
+.partnerCard{
+    display: flex;
+    justify-content:start;
+    align-items: center;
+    width: 100%;
+    background: #fff;
+    gap: 2rem;
+    padding: 1rem 0;
+    border: 0.1px solid gray;
+    border-radius: 5px;
+    
+    
+}
+
+.partnerCard>img{
+    width: 170px;
+    height: 190px;
+    margin: 0 3rem;
+    background-size: cover;
+    border-radius: 5px;
+}
+
+
+.pertnerDetailCont{
+    display: flex;
+    flex-direction: column;
+    justify-content:start;
+    align-items: start;
+ 
+    width: 250px;
+
+    font-size: 0.9rem;
+    
+   
+    
+}
+
+.pertnerDetailCont>h2{
+    /* color: #000000b6; */
+    color: gray;
+    margin-bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    width: 100%;
+    font-size: 1.2rem;
+  
+}
+
+.pertnerDetailCont>h2>span{
+   color: #252525;
+}
+
+.pertnerDetailCont>h4{
+    /* color: ; */
+    margin-top: 0;
+    margin-bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    width: 100%;
+    color: gray;
+}
+
+.pertnerDetailCont>h4>span{
+    color: #252525;
+ }
+.siteScoreCont{
+  
+    align-self: flex-end;
+    margin-left: auto;
+    margin-right: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+    gap: 1rem;
+    /* font-size: 1.1rem; */
+
+   
+}
+
+.chatPartner{
+    background: #17a2b8;
+    border-radius: 5px;
+    padding: 10px;
+    color: #fff;
+    text-decoration: none;
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+}

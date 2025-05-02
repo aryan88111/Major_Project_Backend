@@ -1,0 +1,202 @@
+/* .container {
+  
+  margin: 2 rem 7rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.Headings {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.Headings > img {
+  width: 100px;
+  height: 10px;
+  object-fit: cover;
+}
+
+.Headings > h1 {
+  color: #194668;
+  height: 10px;
+}
+
+.Headings p {
+  width: 500px;
+  text-align: center;
+}
+
+.stepsCont{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+    margin: 2rem;
+}
+.step {
+  border-radius: 7px;
+  background: #ffffff;
+  box-shadow: 21px 21px 40px #a6a6a6, -21px -21px 40px #ffffff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+  width: 150px;
+  padding: 2rem;
+  height: 100px;
+  color: #022036eb;
+
+
+}
+
+.step .icons{
+    font-size: 2rem;
+    
+}
+.step >*{
+    margin:0.5rem 0;
+    font-weight: 600;
+} */
+/* 🌍 Main Container */
+/* 🌍 Main Container */
+.container {
+  margin: 2rem 7rem; /* Fixed incorrect spacing */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+/* 🎯 Headings Section */
+.Headings {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-bottom: 2rem;
+}
+
+.Headings > img {
+  width: 120px; /* Increased size for better visibility */
+  height: auto;
+  object-fit: contain;
+  margin-bottom: 1rem;
+}
+
+.Headings > h1 {
+  color: #194668;
+  font-size: 2rem; /* Increased for better readability */
+  margin-bottom: 0.5rem;
+}
+
+.Headings p {
+  max-width: 500px;
+  text-align: center;
+  font-size: 1rem;
+  color: #333;
+}
+
+/* 📌 Steps Container */
+.stepsCont {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  margin: 2rem 0;
+}
+
+/* 🏡 Individual Step */
+.step {
+  border-radius: 10px;
+  background: #ffffff;
+  box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.1),
+              -10px -10px 20px rgba(255, 255, 255, 0.9);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 180px;
+  padding: 2rem;
+  height: 120px;
+  color: #022036eb;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.step:hover {
+  transform: translateY(-5px);
+  box-shadow: 15px 15px 30px rgba(0, 0, 0, 0.15);
+}
+
+/* 🎨 Icons */
+.step .icons {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+  color: #194668;
+}
+
+/* 🏷️ Step Title */
+.step > * {
+  margin: 0.5rem 0;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+/* 📱 Responsive Design */
+@media (max-width: 1024px) {
+  .container {
+    margin: 2rem;
+  }
+
+  .stepsCont {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .step {
+    width: 220px;
+    height: auto;
+    padding: 1.5rem;
+  }
+
+  .Headings h1 {
+    font-size: 1.8rem;
+  }
+
+  .Headings p {
+    font-size: 1rem;
+    width: 90%;
+  }
+}
+
+@media (max-width: 600px) {
+  .container {
+    margin: 1rem;
+  }
+
+  .step {
+    width: 100%;
+    padding: 1rem;
+  }
+
+  .icons {
+    font-size: 2rem;
+  }
+
+  .step > * {
+    font-size: 1rem;
+  }
+
+  .Headings h1 {
+    font-size: 1.5rem;
+  }
+
+  .Headings p {
+    font-size: 0.9rem;
+  }
+}

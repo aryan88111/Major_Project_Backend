@@ -1,0 +1,39 @@
+
+
+.container>*{
+
+    margin: 0;
+    padding: 0;
+    box-sizing:border-box;
+ 
+
+}
+
+.container{
+    display: grid;
+    grid-template-columns:250px 1fr;
+    grid-template-rows:1fr;
+    margin-top:5rem;
+    padding: 0rem 1rem 0 0;
+    background-color: white;
+    /* gap: 2rem; */
+    width: 100%;
+
+    
+}
+
+
+@media (max-width:450px){
+
+    .container{
+        display: grid;
+        grid-template-columns:100px 1fr;
+        grid-template-rows:1fr;
+        margin-top:5rem;
+        padding: 0rem 1rem 0 0;
+        background-color: white;
+        /* gap: 2rem; */
+        width: 100%;
+    }
+    
+}

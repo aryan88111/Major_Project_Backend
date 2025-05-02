@@ -1,0 +1,311 @@
+
+.Header {
+  width: 100%;
+  height: 600px;
+  /* background: linear-gradient(rgba(255,255,255,.1),rgba(255,255,255,0.1)),
+              url("https://images.pexels.com/photos/731082/pexels-photo-731082.jpeg?cs=srgb&dl=pexels-sebastians-731082.jpg&fm=jpg"); */
+              
+
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  /* padding: 2rem; */
+  padding: 0;
+  overflow: visible;
+}
+
+.swiperImageHome{
+  width: 100%;
+  height: 100%;
+  /* opacity: 0.9; */
+  filter: brightness(40%);
+  z-index: 0;
+  object-fit:cover ;
+}
+
+
+.headingAndDescriptionCont {
+  width: 50%;
+  color: white;
+  font-family: "Poppins", serif;
+  font-weight: 200;
+  position: absolute;
+  top: 200px;
+  left: 50px;
+  /* margin: 10rem 5rem; */
+  z-index: 1000;
+}
+
+.headingAndDescriptionCont h1 {
+  font-size: 3rem;
+  font-weight: 500;
+  line-height: 50px;
+  margin-bottom: 0;
+}
+
+.headingAndDescriptionCont p {
+  width: 60%;
+  font-weight: 400;
+  margin-bottom: 1rem;
+}
+
+.search-searchArrow{
+  position: relative;
+  width: 250px;
+}
+
+.headingAndDescriptionCont input {
+  width: 100%;
+  padding: 10px 15px;
+  border-radius: 20px;
+  border: none;
+  background: linear-gradient(rgba(255,255,255,0.3),rgba(255,255,255,0.3));
+  font-family: poppins;
+  color: white;
+ 
+}
+
+.headingAndDescriptionCont input::placeholder {
+  color: white;
+}
+
+.arrowSearch {
+  font-size: 2.5rem;
+  position: absolute;
+  top: 5px;
+  right:15px;
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+
+.categorialHeaderContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.5rem;
+  width: 570px;
+  height: 100px;
+  border-radius: 30px;
+  background: linear-gradient(rgba(255,255,255,0.2),rgba(255,255,255,0.2));
+  /* background-color: #194668; */
+  position: absolute;
+  bottom: 0px;
+  left: 50%;
+  transform: translateX(-50%);
+  box-shadow: 1px 1px 50px black;
+  z-index: 1000;
+}
+
+
+
+.selectCategory {
+  width: 100px;
+  border-radius: 30px 0 0 30px;
+  background-color: #194668;
+  color: white;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  padding: 7px 15px;
+  margin: 0;
+}
+
+.location{
+  
+  background-color: white;
+  border-radius: 0 0px 0px 0;
+  padding: 7px 5px 7px 10px;
+  border: none;
+  outline: none;
+  margin: 0;
+  width: 35%;
+}
+
+
+
+
+.budget-rupees-cont{
+  position: relative;
+  width: 25%;
+}
+.budgetInp {
+  border-left: 1px solid rgba(128, 128, 128, 0.644);
+  padding: 8px 5px 8px 25px;
+  border: none;
+  outline: none;
+  background-color: white;
+  border-radius: 0 0 0 0;
+  margin: 0;
+ width: 100% !important;
+
+}
+.inputBudgetIcon {
+  position: absolute;
+  top: 12px;
+  left: 5px;
+  color: rgba(0,0,0,0.5);
+  /* margin: 0 0.2rem; */
+}
+
+
+.seacrhBtnLocation {
+  border-radius: 0 30px 30px 0;
+  background-color: #194668;
+  width: 100px;
+  height: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 3px;
+  color: white;
+  font-size: 1rem;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  margin: 0;
+}
+
+
+.categorialHeaderContainer > *{
+
+  height: 40px;
+
+}
+
+@media (max-width: 1024px) {
+  .headingAndDescriptionCont {
+      width: 70%;
+      /* margin: 8rem 3rem; */
+      margin: 0;
+      position: absolute;
+      top: 200px;
+      left: 50px;
+  }
+
+  .headingAndDescriptionCont h1 {
+      font-size: 2.5rem;
+      line-height: 45px;
+  }
+
+  .headingAndDescriptionCont p {
+      width: 80%;
+  }
+
+  .categorialHeaderContainer {
+      width: 60%;
+      height: 80px;
+  }
+
+  .selectCategory, .location, .budgetInp {
+      width: 120px;
+  }
+}
+
+@media (max-width: 768px) {
+  .Header {
+      height: 500px;
+      /* padding: 1rem; */
+
+  }
+
+  .headingAndDescriptionCont {
+      /* width: 90%; */
+      /* margin: 11rem 1.5rem; */
+      margin: 0;
+      position: absolute;
+      top: 100px;
+      left:20px;
+      width: 80%;
+  }
+
+  .headingAndDescriptionCont h1 {
+      font-size: 2rem;
+      line-height: 40px;
+  }
+
+  .headingAndDescriptionCont p {
+      width: 100%;
+  }
+
+  .headingAndDescriptionCont input {
+      width: 50%;
+  }
+
+  .arrowSearch {
+      top: 210px;
+      left: 75%;
+      font-size: 2rem;
+  }
+
+  
+.categorialHeaderContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.5rem;
+  width: 100vw;
+  height: 100px;
+  border-radius: 30px;
+  background: linear-gradient(rgba(255,255,255,0.2),rgba(255,255,255,0.2));
+  /* background-color: #194668; */
+  position: absolute;
+  bottom: 0px;
+  left: 50%;
+  transform: translateX(-50%);
+  box-shadow: 1px 1px 50px black;
+  z-index: 1000;
+}
+
+
+
+.selectCategory {
+  width: 25%;
+  border-radius: 30px 0 0 30px;
+  background-color: #194668;
+  color: white;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  padding: 3px 10px;
+  margin: 0;
+}
+
+.location{
+  
+  background-color: white;
+  border-radius: 0 0px 0px 0;
+  padding: 3px 5px 7px 7px;
+  border: none;
+  outline: none;
+  margin: 0;
+}
+
+.budget-rupees-cont{
+  width: 25%;
+}
+.budgetInp {
+  width: 100%;
+  padding: 8px 3px 8px 20px;
+
+}
+
+.search-searchArrow{
+ display: none;
+}
+
+.inputBudgetIcon {
+  position: absolute;
+  top: 12px;
+  left: 5px;
+  color: rgba(0,0,0,0.5);
+  /* margin: 0 0.2rem; */
+}
+
+
+.seacrhBtnLocation {
+  width: 25%;
+  font-size: 0.8rem;
+}
+
+}

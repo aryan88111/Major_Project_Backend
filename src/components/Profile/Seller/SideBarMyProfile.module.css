@@ -1,0 +1,151 @@
+.sideBar{
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    overflow-x: hidden;
+    background: #504c4c1e;
+    gap:2rem;
+  
+    /* border-right: 0.5px solid gray; */
+}
+
+.ownerImgName{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 1rem 0 ;
+    
+}
+
+.ownerImgName>img{
+    width: 100px;
+    height: 100px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 50%;
+    margin-bottom: 0.5rem
+    
+}
+
+.sideBar>ul{
+   list-style: none;
+   display: flex;
+   flex-direction: column;
+   justify-content: start;
+   align-items:start;
+   width: 100%;
+   gap: 2rem;
+   padding: 0;
+}
+/* .sideBar ul>li{
+    display: flex;
+    justify-content: start;
+    align-items: start;
+    gap: 1rem;
+    width: 70%;
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    margin-left: 1rem;
+    transform: all 2s ease;
+   
+
+} */
+
+.sideBar ul>*{
+    align-self: center;
+
+    color: black;
+    padding:1rem 1.5rem;
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    text-decoration: none;
+    width: 70%;
+    /* margin-left: 1rem; */
+}
+
+.active{
+    border: 2px solid purple;
+    box-shadow: 0.5px 0.5px 2px purple;
+    font-weight: 500;
+    color: black;
+
+}
+/* .sideBar ul>li:first-child{
+    border: 2px solid purple;
+    box-shadow: 0.5px 0.5px 2px purple;
+} */
+
+.LogoutDiv{
+    border-top: 0.5px solid gray;
+    padding: 2rem 0;
+    width: 100%;
+    /* text-align: center; */
+    
+    
+}
+.LogoutDiv>*{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    text-decoration: none;
+   cursor: pointer;
+}
+
+ 
+
+@media (max-width:450px) {
+
+    .sideBar{
+
+        width: 100px;
+        background: #252525;
+     
+    }
+
+
+    .ownerImgName{
+        display: none;
+    } 
+    
+
+    .sideBarOptions{
+        display: none;
+
+    }
+  
+    .barIcons{
+        font-size: 3rem;
+        margin: 10px;
+        text-align: center;
+        color: #fff;
+    }
+    .menuItem{
+        font-size: 2rem;
+        border-radius:0 !important;
+    }
+    .sideBar ul{
+        margin: 5rem 0;
+        color: #fff;
+    }
+
+    .sideBar ul>*{
+        justify-content: center;
+        color: #fff;
+    }
+
+    .active{
+        border: none;
+        background-color: #fff;
+        color: #252525 !important;
+        box-shadow: 0.5px 0.5px 2px purple;
+        font-weight: 500;
+        border-radius:0;
+    }
+
+    }

@@ -1,0 +1,49 @@
+.main-filter-cont{
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    margin-bottom: 2rem !important;
+    flex-direction: column !important;
+    padding: 1rem !important;
+}
+
+.filter-cont-inp-btn-cont{
+   display: flex !important;
+   justify-content: center !important;
+   align-items: center !important;
+
+}
+.filter-cont-inp-btn-cont>div{
+    width:700px;
+}
+
+.filter-cont-inp-btn-cont>div>input{
+    margin: none !important;
+    width: 100%;
+}
+
+.filter-cont-inp-btn-cont>button{
+    margin: none !important;
+    margin-top: 1rem !important;
+}
+
+@media (max-width:800px)
+{
+    .filter-cont-inp-btn-cont>div{
+        width:500px;
+    }
+}
+
+@media (max-width:500px)
+{
+    .filter-cont-inp-btn-cont>div{
+        width:300px;
+    }
+}
+
+@media (max-width:300px)
+{
+    .filter-cont-inp-btn-cont>div{
+        width:200px;
+    }
+}

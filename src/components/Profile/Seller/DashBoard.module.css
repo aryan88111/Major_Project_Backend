@@ -1,0 +1,326 @@
+
+.middleCont{
+    grid-column-start: 2;
+    grid-column-end: 3;
+    display: grid;
+    grid-template-columns: repeat(1,1fr);
+    grid-template-rows:70px 250px 1fr 2fr;
+  
+}
+
+
+.HeadingCont{
+    grid-column-start: 1;
+    grid-column-end: 1;
+    height: 70px;
+    display: flex;
+    flex-wrap: nowrap;
+    margin: 1rem;
+}
+.HeadingCont>*{
+    font-size: 1.1rem;
+    margin: 0 1rem;
+    overflow: hidden;  
+    height: 30px;
+    animation: textHeading 8s linear 1s 1 normal;
+    white-space: nowrap;
+}
+
+@keyframes textHeading{
+
+    0%{
+        width: 5px;
+    }
+    20%{
+        width: 50px;
+    }
+    40%{
+        width: 100px;
+    }
+
+    60%{
+        width: 200px;
+    }
+
+      80%{
+        width: 250px;
+      }
+    100%{
+        width: 300px;
+    }
+    
+}
+.topDivCont{
+    /* width: 95%; */
+    height: 250px;
+    padding: 0 2.5rem;
+    cursor: pointer;
+}
+
+.topDivCont>img{
+    width: 100%;
+    height: 250px;
+    background-size: cover;
+    background-position: center;
+    object-fit: cover;
+    border-radius: 20px;
+    
+}
+.moneyAndChartCont{
+    display: grid;
+    grid-template-columns: 400px repeat(1,1fr);
+    grid-template-rows: repeat(2,1fr);
+    padding: 1rem 2.5rem;
+    gap: 1.5rem;
+}
+
+.TotalPriceCont{
+
+    grid-column-start:1;
+    grid-column-end: 2;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    border-radius: 20px;
+    background-color: rgba(106, 127, 120, 0.432);
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 0;
+   
+
+}
+.TotalPriceCont>strong{
+    color: #252525c5;
+}
+
+/* .TotalPriceCont>*{
+    margin-top: 2rem;
+} */
+
+.SoldPriceCont{
+    grid-column-start:1;
+    grid-column-end: 2;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    border-radius: 20px;
+    background-color: rgba(127, 255, 212, 0.432);
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.SoldPriceCont>strong{
+    color: #252525c5;
+}
+.chartCont{
+    grid-column-start:2;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 3;
+    border-radius: 20px;
+    background-color: rgba(189, 196, 90, 0.432);
+    display: flex;
+    justify-content: start;
+    flex-direction: column;
+    align-items: start;
+    padding: 0 2rem;
+
+}
+.chartCont>h2{
+    color: #252525c5;
+}
+
+.queryHistoryCont{
+    padding: 0 2.5rem;
+    display:flex;
+    justify-content:start;
+    align-items: center;
+    flex-direction: column;
+    gap: 1rem;
+    font-weight: 300;
+  
+}
+
+.firstQueryCont{
+    background-color: rgba(128, 128, 128, 0.32);
+    border-radius: 20px;
+    width: 100%;
+    padding: 0.19rem 0 0.2rem 0;
+    font-weight: bold;
+}
+
+.firstQueryCont h2{
+    margin: 1rem 3rem;
+    /* font-weight: 300; */
+    color: #252525c5;
+    
+}
+.firstQueryCont ul{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    list-style: none;
+    padding: 0 3rem;
+}
+
+
+.firstQueryCont ul>li:nth-child(3n)
+{
+    margin-left: 15rem;
+}
+
+
+.queryByBuyerCont{
+    background-color: rgba(128, 128, 128, 0.32);
+    border-radius: 20px;
+    width: 100%;
+    padding: 0.19rem 0 0.2rem 0;
+
+}
+.queryByBuyerCont ul{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    list-style: none;
+    padding: 0 4rem;
+
+}
+
+
+@media (max-width:450px)
+{
+    .middleCont{
+        margin: 3rem 0 !important;
+       
+    }
+    .topDivCont{
+      
+        height: 250px;
+        padding: 0 1rem;
+        cursor: pointer;
+        border-radius: 0 !important;
+      
+    }
+
+    .topDivCont>img{
+        width: 100%;
+        height: 250px;
+        background-size: cover;
+        background-position: center;
+        object-fit: cover;
+        border-radius: 0px;
+        
+    }
+
+    .moneyAndChartCont{
+        display: grid;
+        grid-template-columns: 150px repeat(1,1fr);
+        grid-template-rows: repeat(2,1fr);
+        padding: 1rem 2rem;
+        gap: 0.5rem;
+    }
+    
+    .TotalPriceCont{
+    
+        grid-column-start:1;
+        grid-column-end: 2;
+        grid-row-start: 1;
+        grid-row-end: 2;
+        border-radius: 10px;
+        background-color: rgba(106, 127, 120, 0.432);
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        padding: 20px 40px;
+        text-align: center;
+       
+    
+    }
+    .SoldPriceCont{
+        text-align: center;
+        border-radius: 10px;
+        padding: 20px 40px;
+    }
+
+    .queryHistoryCont{
+        padding: 0 2rem;
+        display:flex;
+        justify-content:start;
+        align-items: center;
+        flex-direction: column;
+        gap: 1rem;
+        font-weight: 300;
+      
+    }
+    
+    .firstQueryCont{
+        background-color: rgba(128, 128, 128, 0.32);
+        border-radius: 10px;
+        width: 100%;
+        padding: 0.2rem 0 0.2rem 0;
+        font-weight: bold;
+    }
+    
+    .firstQueryCont h2{
+        margin: 1rem 1rem;
+        /* font-weight: 300; */
+        color: #252525c5;
+        
+    }
+    .firstQueryCont ul{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        list-style: none;
+        padding: 0 1rem;
+    }
+    
+    
+    .firstQueryCont ul>li:nth-child(3n)
+    {
+        margin-left: 0rem;
+    }
+    
+    
+    .queryByBuyerCont{
+        background-color: rgba(128, 128, 128, 0.32);
+        border-radius: 10px;
+        width: 100%;
+       
+        padding: 0rem 0 0rem 0;
+    
+    }
+    .queryByBuyerCont ul{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        list-style: none;
+        padding: 0 2rem 0 0.1rem;
+        gap: 1rem;
+        font-size: smaller;
+   
+
+        /* background; */
+    
+    }
+
+    .queryByBuyerCont ul>li{
+        min-width: 80px !important;
+        width: 100px;
+       
+        display: block;
+        
+        flex-wrap: wrap !important;
+        word-wrap: break-word !important; /* Break long words */
+        overflow-wrap: break-word !important; /* Ensure text breaks */
+        text-align: center !important; /* Optional: Align text to the center */
+        
+        /* background: #000; */
+        /* color: #fff; */
+      
+    }
+    
+}

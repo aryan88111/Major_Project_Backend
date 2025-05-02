@@ -1,0 +1,94 @@
+.footerContainer {
+  /* background: #222; */
+  background-color: #194668;
+  color: #fff;
+  padding: 3rem 2rem;
+  text-align: center;
+  margin-top: auto !important;
+  /* min-width: 700px; */
+
+
+}
+
+.footerTop {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.brand .icon {
+  font-size: 1.5rem;
+}
+
+.footerTop p {
+  margin-top: 10px;
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+.socialIcons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 10px;
+  font-size: 1.5rem;
+}
+
+.socialIcons svg {
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.socialIcons svg:hover {
+  color: #ffcc00;
+}
+
+.footerLinks {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+  gap: 2rem;
+}
+
+.footerLinks div {
+  flex: 1;
+  min-width: 150px;
+}
+
+.footerLinks h6 {
+  font-size: 1rem;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+
+.footerLinks ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footerLinks li {
+  font-size: 0.9rem;
+  opacity: 0.8;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.footerLinks li:hover {
+  color: #ffcc00;
+  opacity: 1;
+}
+
+.footerBottom {
+  margin-top: 2rem;
+  font-size: 0.8rem;
+  opacity: 0.7;
+}

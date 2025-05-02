@@ -1,0 +1,285 @@
+.container>*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container{
+    display: flex;
+    justify-content: start;
+    align-items:center;
+    flex-direction: column;
+    padding: 2rem;
+}
+.container h2{
+    align-self: center;
+    display: block;
+}
+
+.imageCont{
+    display: flex;
+    flex-direction: column;
+    margin: 2rem;
+    gap: 1rem;
+    padding-bottom: 2rem;
+    border-bottom: 1.5px solid gray;
+}
+
+.imageCont>img{
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+}
+
+.viewEditCont{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.viewEditCont>*:first-child{
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.viewEditCont>button{
+   
+    color: #194668;
+    background-color: transparent;
+    border: none;
+    font-size: 1.1rem;
+    cursor: pointer;
+}
+
+
+.imageViewCont{
+    width: 400px;
+    height: 400px;
+    object-fit: cover;
+    position: relative;
+    display: none;
+    /* z-index: 1000; */
+    margin: 2rem 0;
+    animation:imageView 0.1s linear normal;
+
+}
+
+@keyframes imageView{
+    0%{
+        transform: scale(0);
+    }
+    100%{
+        transform: scale(1);
+    }
+}
+.imageViewCont>img{
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+}
+
+.closeBtn{
+    position: absolute;
+    right: -40px;
+    top: -30px;
+    font-size: 3rem;
+    cursor: pointer;
+
+}
+
+.inputImageChange{
+    /* appearance: none; */
+    display: none;
+}
+
+
+.credentialCont{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: start;
+    width: 800px;
+    padding: 2rem 0;
+   
+}
+/* .credentialCont>form{
+  
+    width: 100%;
+
+} */
+
+.credentialCont>div{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 5rem;
+    width: 100%;
+}
+
+
+
+
+.credentialCont>div>select{
+    padding: 10px 70px;
+    margin-right:0.6rem ;
+    font-size: 16px;
+    background-color: #f8f9fa;
+    border: 0.2px solid gray;
+    border-radius: 5px;
+    background-color: #f8f9fa;
+    color: #222222;
+    /* color: #fff; */
+    cursor: pointer;
+    outline: none;
+    appearance: none; /* Removes default browser styling */
+    -webkit-appearance: none; /* Safari compatibility */
+    -moz-appearance: none; /* Firefox compatibility */
+}
+
+
+.credentialCont>div>input{
+
+    padding: 0.7rem;
+    border-radius: 10px;
+    border: 0.2px solid gray;
+    outline: none;
+    margin: 0.5rem;
+
+}
+.credentialCont>div>input:focus{
+    outline: 0.5px solid #30a2fa;
+}
+
+.credentialCont>div>button{
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    margin: 2rem 0;
+    background: #0d6efd;
+    color: #fff;
+}
+.credentialCont>div>button:active{
+    transform: scale(0.85);
+}
+
+.credentialCont>div>button:first-child{
+    /* color: #252525; */
+    background: #dc3545;
+}
+
+
+
+
+
+
+.modal{
+    width: 600px;
+    border: 1px solid gray;
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    border-radius: 20px;
+    background-color: #bdbabae7;
+    display: none;
+    animation: coming 0.2s linear normal;
+    /* z-index: 1000; */
+    background-color: rgba(0, 0, 0, 0.9); /* Dark gray overlay */
+    backdrop-filter: blur(8px); /* Optional: adds background blur */
+    color: white;
+    box-shadow: 0.5px 0.5px 50px black;
+
+
+}
+
+@keyframes coming {
+    0%{
+        /* opacity: 0; */
+        transform: scale(0.5);
+
+    }
+    100%{
+      /* opacity: 1; */
+      transform: scale(1);
+    }
+    
+}
+.modal>form>div{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+
+}
+
+.modal>form>div>input{
+    padding: 0.7rem;
+    border-radius: 10px;
+    border: 0.2px solid gray;
+    outline: none;
+    margin: 0.5rem;
+}
+.modal>form>div>input:focus{
+
+    outline: 0.5px solid #30a2fa;
+}
+
+.modal>form>div>select{
+    padding: 10px 70px;
+    margin-right:0.6rem ;
+    font-size: 16px;
+    background-color: #f8f9fa;
+    border: 0.2px solid gray;
+    border-radius: 5px;
+    background-color: #f8f9fa;
+    color: #222222;
+    /* color: #fff; */
+    cursor: pointer;
+    outline: none;
+    appearance: none; /* Removes default browser styling */
+    -webkit-appearance: none; /* Safari compatibility */
+    -moz-appearance: none; /* Firefox compatibility */
+}
+
+.modal>form>div>button{
+    background: #dc3545;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    margin: 1rem 0;
+    background: #0d6efd;
+    color: #fff;
+}
+
+.modal>form>div>button:first-child{
+    background: #dc3545;
+}
+.modal>form>div>:active{
+    transform: scale(0.85);
+}
+
+
+
+
+@media (max-width:300px){
+    .credentialCont{
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        justify-content: start;
+        width: 500px;
+        padding: 2rem;
+    }
+}
+@media (max-width:200px){
+    .credentialCont{
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        justify-content: start;
+        width: 400px;
+        padding: 2rem;
+    }
+}

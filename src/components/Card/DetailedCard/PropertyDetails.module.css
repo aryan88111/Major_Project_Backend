@@ -1,0 +1,32 @@
+.container{
+    width: 80vw;
+    margin: 1rem 5rem;
+    display: flex;
+    justify-content: start;
+    align-items: start;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 2rem;
+    border: none;
+    /* border: 0.2px solid gray; */
+    background:#fff;
+    border-radius: 10px;
+   
+
+}
+
+.container>div>h3{
+    color: #194668;
+}
+
+@media (max-width:400px) {
+
+    .container{
+        width: 100%;
+        padding: 2rem;
+        margin: 0;
+        min-width:450px;
+    }
+
+    
+}
