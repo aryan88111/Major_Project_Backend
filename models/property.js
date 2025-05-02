@@ -160,6 +160,10 @@ const propertySchema = mongoose.Schema({
     createdAt: {
         type: Date,
         default: Date.now
+    },
+    verified: {
+        type: Boolean,
+        default: false // Initially set to false, will be verified later by admin
     }
 
 }, { timestamp: true });
