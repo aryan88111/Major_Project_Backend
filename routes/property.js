@@ -31,7 +31,7 @@ router.post('/:id/appointment', async(req, res) => {
             date,
             time,
             location,
-            status: 'Scheduled',
+            status: "pending",
         });
 
         await newAppointment.save();
